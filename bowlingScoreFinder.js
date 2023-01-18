@@ -11,8 +11,25 @@ const getScore= rolls =>{
   }
   return totalScore;
 }
+const getFrame= rolls =>{
+  let finalFrames={};
+  for(let iterator=0;iterator<10;iterator++){
+    if(rolls[iterator*2]===10 || rolls[iterator*2]+rolls[iterator*2+1]===10){
+      finalFrames[iterator+1]=[rolls[iterator*2],rolls[iterator*2+1],rolls[iterator*2+2]];
+    }else {
+      finalFrames[iterator+1]=[rolls[iterator*2],rolls[iterator*2+1]];
+    }
+  }
+  return finalFrames;
+}
+
+
+
+
 let rolls1=[3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6];
 let rolls2=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10];
 let rolls3=[6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+console.log(getFrame(rolls1));
 
 
